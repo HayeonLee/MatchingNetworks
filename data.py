@@ -85,9 +85,9 @@ class MatchingNetworkDatasetParallel(Dataset):
         return x_train, x_val, x_test
 
     def load_datapaths(self):
-        data_path_file = "datasets/{}.pkl".format(self.dataset_name)
-        self.index_to_label_name_dict_file = "datasets/map_to_label_name_{}.pkl".format(self.dataset_name)
-        self.label_name_to_map_dict_file = "datasets/label_name_to_map_{}.pkl".format(self.dataset_name)
+        data_path_file = "{}/{}.pkl".format(self.data_path, self.dataset_name)
+        self.index_to_label_name_dict_file = "{}/map_to_label_name_{}.pkl".format(self.data_path, self.dataset_name)
+        self.label_name_to_map_dict_file = "{}/label_name_to_map_{}.pkl".format(self.data_path, self.dataset_name)
 
         if self.reset_stored_filepaths == True:
             if os.path.exists(data_path_file):
@@ -333,9 +333,9 @@ class MatchingNetworkLoader(object):
                  num_samples_per_class, train_val_test_split,
                  samples_per_iter=1, num_workers=4, reverse_channels=False, seed=100, labels_as_int=False):
 
-        self.zip_dir = "datasets/{}.zip".format(name)
-        self.data_folder_dir = "datasets/{}".format(name)
-        self.datasets_dir = "datasets/"
+        #self.zip_dir = "datasets/{}.zip".format(name)
+        #self.data_folder_dir = "datasets/{}".format(name)
+        #self.datasets_dir = "datasets/"
         self.num_of_gpus = num_of_gpus
         self.batch_size = batch_size
         self.samples_per_iter = samples_per_iter

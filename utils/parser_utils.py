@@ -23,6 +23,7 @@ def get_args():
                                                                                            " embedding per class, "
                                                                                            "similar to prototypical"
                                                                                            " networks paper)")
+    parser.add_argument('--data_path', nargs="?", type=str, default='../../data', help='data path')
 
     args = parser.parse_args()
     args.use_full_context_embeddings = True if args.use_full_context_embeddings=="True" else False
